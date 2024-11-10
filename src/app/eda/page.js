@@ -22,7 +22,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import AppNavbar from "@/app/components/Navbar";
-
+import NavigationArrows from "@/app/components/NavigationArrows";
 const FeatureDescription = ({ title, description }) => (
     <div className="mb-6">
       <h3 className="text-xl font-semibold text-white">{title}</h3>
@@ -411,6 +411,15 @@ const EDA = () => {
             </section>
           </div>
         </main>
+        {/* Navigation Arrows only appear at the end of the page */}
+        <div className="mt-12 px-4 pb-6 flex justify-between items-center">
+          <NavigationArrows
+              prevPage="/"
+              nextPage="/predictive"
+              prevLabel="Home"
+              nextLabel="Predictive"
+          />
+        </div>
       </>
   );
 };

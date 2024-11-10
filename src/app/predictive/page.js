@@ -39,7 +39,7 @@ import {
   Customized,
 } from "recharts";
 import { Typewriter } from 'react-simple-typewriter';
-
+import NavigationArrows from "@/app/components/NavigationArrows";
 // **Model Options**
 const modelOptions = [
   { value: "logistic", label: "Logistic Regression" },
@@ -573,7 +573,17 @@ export default function PredictivePage() {
                 )}
               </div>
           )}
+          {/* Navigation Arrows */}
+          <div className="mt-8">
+            <NavigationArrows
+                prevPage="/eda"
+                nextPage="/"
+                prevLabel="Exploratory Analysis"
+                nextLabel="Home"
+            />
+          </div>
         </div>
       </div>
+
   );
 }
