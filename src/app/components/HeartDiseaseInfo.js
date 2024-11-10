@@ -97,7 +97,7 @@ export const HeartDiseaseInfo = forwardRef((props, ref) => {
                             url="/eda"
                             className="font-bold text-blue-500"
                             isInternalRoute={true}
-                            previewImage="/api/placeholder/400/320"
+                            previewImage="/images/eda.jpg"
                         >
                             Interactive Data Analysis & Visualization
                         </LinkPreview>
@@ -119,21 +119,6 @@ export const HeartDiseaseInfo = forwardRef((props, ref) => {
                         <p className="text-gray-300 text-sm mt-2">
                             Access our advanced machine learning models to assess heart disease risk factors
                             and receive personalized risk assessments based on clinical parameters.
-                        </p>
-                    </div>
-
-                    <div className="group">
-                        <LinkPreview
-                            url="/resources"
-                            className="font-bold text-blue-500"
-                            isInternalRoute={true}
-                            previewImage="/api/placeholder/400/320"
-                        >
-                            Educational Resources & Guidelines
-                        </LinkPreview>
-                        <p className="text-gray-300 text-sm mt-2">
-                            Find comprehensive educational materials, research papers, and guidelines
-                            for understanding heart disease prevention and management strategies.
                         </p>
                     </div>
                 </div>
