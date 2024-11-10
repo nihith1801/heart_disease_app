@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import localFont from 'next/font/local';
+import { usePathname } from 'next/navigation';
 import {
     Navbar,
     NavbarBrand,
@@ -103,8 +104,9 @@ const AppNavbar = () => {
 
 const Home = () => {
     const [loading, setLoading] = useState(true);
-    const [initialized, setInitialized] = useState(false);
     const mainContentRef = useRef(null);
+    const pathname = usePathname();
+    const navigationRef = useRef(false);
 
     const loadingStates = [
         { text: "Setting up.." },
@@ -114,26 +116,30 @@ const Home = () => {
     ];
 
     useEffect(() => {
-        // Initialize the component
-        if (typeof window !== 'undefined' && !initialized) {
-            const hasVisited = localStorage.getItem('hasVisitedHeartDisease');
+        if (typeof window !== 'undefined') {
+            // Check if this is a navigation or direct load
+            const navigationState = sessionStorage.getItem('navigationState');
 
-            if (!hasVisited) {
-                // First visit
+            if (navigationState) {
+                // This is a navigation from within the app
+                setLoading(false);
+                navigationRef.current = true;
+            } else {
+                // This is a direct load or refresh
                 const timer = setTimeout(() => {
                     setLoading(false);
-                    localStorage.setItem('hasVisitedHeartDisease', 'true');
                 }, 4000);
-
                 return () => clearTimeout(timer);
-            } else {
-                // Returning visit
-                setLoading(false);
             }
-
-            setInitialized(true);
         }
-    }, [initialized]);
+    }, []);
+
+    // Update navigation state when pathname changes
+    useEffect(() => {
+        if (typeof window !== 'undefined' && !loading) {
+            sessionStorage.setItem('navigationState', 'true');
+        }
+    }, [pathname, loading]);
 
     useEffect(() => {
         if (typeof window !== "undefined" && !loading) {
@@ -150,8 +156,6 @@ const Home = () => {
         }
     }, [loading]);
 
-    const shouldShowLoader = loading && (!initialized || !localStorage.getItem('hasVisitedHeartDisease'));
-
     return (
         <div className={`min-h-screen bg-neutral-950 ${nothingOS.className}`}>
             <div
@@ -162,11 +166,11 @@ const Home = () => {
                     overflow: 'auto'
                 }}
             >
-                {shouldShowLoader ? (
+                {loading && !navigationRef.current ? (
                     <div className="fixed inset-0 z-50 flex flex-col items-center justify-center">
                         <MultiStepLoader
                             loadingStates={loadingStates}
-                            loading={true}
+                            loading={loading}
                             duration={1000}
                         />
                     </div>
