@@ -50,9 +50,8 @@ const AcmeLogo = () => (
 
 const AppNavbar = () => {
   const menuItems = [
-    { name: "Home", path: "/" },
+    { name: "Predictive Analysis", path: "/predictive" },
     { name: "EDA Analysis", path: "/eda" },
-    { name: "About", path: "/about" },
   ];
 
   return (
@@ -96,13 +95,6 @@ const AppNavbar = () => {
           ))}
         </NavbarContent>
 
-        <NavbarContent justify="end">
-          <NavbarItem className="hidden lg:flex">
-            <Link href="/eda" className="text-white/90 hover:text-white">
-              About
-            </Link>
-          </NavbarItem>
-        </NavbarContent>
 
         <NavbarMenu className="bg-neutral-950 mt-16">
           {menuItems.map((item) => (

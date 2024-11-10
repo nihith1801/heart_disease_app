@@ -1,7 +1,6 @@
 // /pages/predictive.js
 
 "use client";
-
 import React, { useState, useEffect } from 'react';
 import {
   Textarea,
@@ -40,6 +39,7 @@ import {
 } from "recharts";
 import { Typewriter } from 'react-simple-typewriter';
 import NavigationArrows from "@/app/components/NavigationArrows";
+import {CursorEffect} from "@/app/components/CursorEffect";
 // **Model Options**
 const modelOptions = [
   { value: "logistic", label: "Logistic Regression" },
@@ -582,6 +582,7 @@ export default function PredictivePage() {
                 nextLabel="Home"
             />
           </div>
+          <CursorEffect />
         </div>
       </div>
 

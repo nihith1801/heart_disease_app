@@ -28,7 +28,6 @@ export default function AppNavbar() {
         { name: "Home", path: "/" },
         { name: "EDA Analysis", path: "/eda" },
         { name: "Predictive Analysis", path: "/predictive" },
-        { name: "About", path: "/about" },
     ];
 
     return (
@@ -70,14 +69,6 @@ export default function AppNavbar() {
                         </Link>
                     </NavbarItem>
                 ))}
-            </NavbarContent>
-
-            <NavbarContent justify="end">
-                <NavbarItem className="hidden lg:flex">
-                    <Link href="/about" className="text-white/90 hover:text-white">
-                        About
-                    </Link>
-                </NavbarItem>
             </NavbarContent>
 
             <NavbarMenu className="bg-neutral-950 mt-16">

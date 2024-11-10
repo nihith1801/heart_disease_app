@@ -23,6 +23,7 @@ import {
 } from "@/components/ui/card";
 import AppNavbar from "@/app/components/Navbar";
 import NavigationArrows from "@/app/components/NavigationArrows";
+import {CursorEffect} from "@/app/components/CursorEffect";
 const FeatureDescription = ({ title, description }) => (
     <div className="mb-6">
       <h3 className="text-xl font-semibold text-white">{title}</h3>
@@ -411,6 +412,7 @@ const EDA = () => {
             </section>
           </div>
         </main>
+        <CursorEffect />
         {/* Navigation Arrows only appear at the end of the page */}
         <div className="mt-12 px-4 pb-6 flex justify-between items-center">
           <NavigationArrows
@@ -420,6 +422,7 @@ const EDA = () => {
               nextLabel="Predictive"
           />
         </div>
+
       </>
   );
 };
