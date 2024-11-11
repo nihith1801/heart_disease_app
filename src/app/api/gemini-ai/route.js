@@ -3,7 +3,7 @@
 import { NextResponse } from 'next/server';
 import { GoogleGenerativeAI } from '@google/generative-ai';
 require('dotenv').config();
-const apiKey=process.env.GEMINI_AI_KEY;
+const apiKey=process.env.NEXT_PUBLIC_GEMINI_AI_KEY;
 console.log(apiKey);
 // Initialize GoogleGenerativeAI with your API key
 const genAI = new GoogleGenerativeAI(apiKey);
@@ -24,7 +24,7 @@ export async function POST(request) {
       );
     }
 
-    const GEMINI_AI_ENDPOINT =process.env.GEMINI_AI_ENDPOINT;
+    const GEMINI_AI_ENDPOINT =process.env.NEXT_PUBLIC_GEMINI_AI_ENDPOINT;
     if (!GEMINI_AI_ENDPOINT) {
       console.error('Gemini AI API endpoint is missing.');
       return NextResponse.json(
